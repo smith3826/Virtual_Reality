@@ -10,15 +10,15 @@ public class HeadGesture : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		previousCameraAngle = CameraAngleFromGround ();
+//		previousCameraAngle = CameraAngleFromGround ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		isFacingDown = DetectFacingDown ();
-		isMovingDown = DetectMovingDown ();
+//		isFacingDown = DetectFacingDown ();
+//		isMovingDown = DetectMovingDown ();
 	}
-
+/*
 	private float CameraAngleFromGround () {
 		return Vector3.Angle (Vector3.down, Camera.main.transform.rotation * Vector3.forward);
 	}
@@ -33,5 +33,5 @@ public class HeadGesture : MonoBehaviour {
 		float rate = deltaAngle / Time.deltaTime;
 		previousCameraAngle = angle;
 		return (rate >= sweepRate);
-	}
+	}*/
 }

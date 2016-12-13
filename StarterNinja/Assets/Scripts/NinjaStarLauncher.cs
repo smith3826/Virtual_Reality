@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NinjaStarLauncher : MonoBehaviour {
 
-	public GameObject ninja;
+	//public GameObject ninja;
 	public NinjaStarController ninjaStar;
 	public AudioSource whooshSound;
 
@@ -13,13 +13,13 @@ public class NinjaStarLauncher : MonoBehaviour {
 	private Vector3 _shooterOffset;
 
 	public float velocity = 0.7f;
-	public bool isWalking = false;
-	private CharacterController controller;
+	//public bool isWalking = false;
+	//private CharacterController controller;
 
 	void Start () {
 	//	ninja = GetComponent<GameObject> ();
 		_gameController = this.GetComponent<GameController>();
-		_shooterOffset = new Vector3(0.0f, 0.8f, 1.0f);
+		_shooterOffset = new Vector3(0.0f, 0.0f, 1.0f);
 
 		_vrShooterOffset = new Vector3 (0.0f, -0.4f, 1.0f);
 	}
@@ -27,18 +27,19 @@ public class NinjaStarLauncher : MonoBehaviour {
 	void Update () {
 		//1 
 	//	controller.SimpleMove(Camera.main.transform.forward * velocity);
+		Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
 		if (GvrViewer.Instance.VRModeEnabled && GvrViewer.Instance.Triggered && !_gameController.isGameOver) {  
 			GameObject vrLauncher = GvrViewer.Instance.GetComponentInChildren<GvrHead>().gameObject;
 			// 2
-			LaunchNinjaStarFrom(vrLauncher, _vrShooterOffset);
+			LaunchNinjaStarFrom(cam.gameObject, _vrShooterOffset);
 		} else if (!GvrViewer.Instance.VRModeEnabled && Input.GetButtonDown("Fire1") && 
 			!_gameController.isGameOver) {
 			// This is the same code as before
 			Vector3 mouseLoc = Input.mousePosition;
 			Vector3 worldMouseLoc = Camera.main.ScreenToWorldPoint(mouseLoc);
-			worldMouseLoc.y = ninja.transform.position.y;
-			ninja.transform.LookAt(worldMouseLoc);
-			LaunchNinjaStarFrom(ninja, _shooterOffset);
+			//worldMouseLoc.y = ninja.transform.position.y;
+			//ninja.transform.LookAt(worldMouseLoc);
+			LaunchNinjaStarFrom(cam.gameObject, _shooterOffset);
 		}
 	}
 	

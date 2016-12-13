@@ -4,4 +4,4 @@ metadata
 *.meta
 Temp/
 builds/
-.bin
+*.bin

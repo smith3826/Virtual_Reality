@@ -1,4 +1,4 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class GestureWalk : MonoBehaviour {
@@ -8,15 +8,14 @@ public class GestureWalk : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		lookWalk = GetComponent<HeadLookWalk> ();
-		gesture = GameObject.Find ("GameController").GetComponent < HeadGesture> ();
+//		lookWalk = GetComponent<HeadLookWalk> ();
+//		gesture = GameObject.Find ("GameController").GetComponent < HeadGesture> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (gesture.isMovingDown) {
-			lookWalk.isWalking = !lookWalk.isWalking;
-		}
+//		if (gesture.isMovingDown) {
+//			lookWalk.isWalking = !lookWalk.isWalking;
+//		}
 	}
 }
-*/
