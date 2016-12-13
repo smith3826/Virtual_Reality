@@ -12,7 +12,12 @@ public class NinjaStarLauncher : MonoBehaviour {
 	private GameController _gameController;
 	private Vector3 _shooterOffset;
 
+	public float velocity = 0.7f;
+	public bool isWalking = false;
+	private CharacterController controller;
+
 	void Start () {
+	//	ninja = GetComponent<GameObject> ();
 		_gameController = this.GetComponent<GameController>();
 		_shooterOffset = new Vector3(0.0f, 0.8f, 1.0f);
 
@@ -21,6 +26,7 @@ public class NinjaStarLauncher : MonoBehaviour {
 	
 	void Update () {
 		//1 
+	//	controller.SimpleMove(Camera.main.transform.forward * velocity);
 		if (GvrViewer.Instance.VRModeEnabled && GvrViewer.Instance.Triggered && !_gameController.isGameOver) {  
 			GameObject vrLauncher = GvrViewer.Instance.GetComponentInChildren<GvrHead>().gameObject;
 			// 2

@@ -2,3 +2,6 @@
 metadata
 *.info
 *.meta
+Temp/
+builds/
+.bin
