@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
 	/// Game's over. 
 	/// </summary>
 	/// <param name="didIWin">Did the playeer win?</param>	
-	public void GameOver(bool didIWin) {
+	public void GameOver(bool didIWin) { 
 		isGameOver = true;
 		_didIWin = didIWin;
 		string finalTxt = (_didIWin) ? "You won!" : "Too bad";
@@ -73,6 +73,12 @@ public class GameController : MonoBehaviour {
 		_currScore = 0;
 		scoreTxt.text = "--";
 		VRScoreTxt.text = "--";
+		Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
+		Vector3 startDirection;
+		startDirection.x = -5.49f;
+		startDirection.y = 1.13f;
+		startDirection.z = 0.12f;
+		cam.transform.position = startDirection;
 
         // Remove any remaining game objects
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
