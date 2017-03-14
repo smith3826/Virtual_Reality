@@ -4,7 +4,7 @@ using System.Collections;
 public class NinjaStarController : MonoBehaviour {
 
 	float starSpeed = 9.0f;
-	float rotationSpeed = 8.0f;
+	float rotationSpeed = 10.0f;
 	
 	void Start () {
 		this.GetComponent<Rigidbody>().velocity = this.transform.up * starSpeed;

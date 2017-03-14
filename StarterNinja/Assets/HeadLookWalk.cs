@@ -4,7 +4,7 @@ using System.Collections;
 public class HeadLookWalk : MonoBehaviour {
 	public float velocity = 0.7f;
 	private Camera camera;
-	//public bool isWalking = false;
+	public bool isWalking = false;
 	//private CharacterController controller;
 
 
