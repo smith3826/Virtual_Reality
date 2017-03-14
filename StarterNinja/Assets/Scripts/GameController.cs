@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour {
 		VRScoreTxt.text = "--";
 		Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
 		Vector3 startDirection;
-		startDirection.x = -5.49f;
+		startDirection.x = 10f;
 		startDirection.y = 1.13f;
 		startDirection.z = 0.12f;
 		cam.transform.position = startDirection;

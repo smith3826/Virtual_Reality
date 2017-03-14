@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float launchRangeMinTime;
 	public float launchRangeMaxTime;
 	public GameObject enemyPrefab;
+	public float direction;
 	
 	private float _nextLaunchTime;
 	private float _ySpawn = 0.4f;
@@ -21,7 +22,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Start () {
 		SetNextLaunch();
 		_gameController = this.GetComponent<GameController>();
-		_launchRotation = Quaternion.Euler(new Vector3(0.0f, -90.0f, 0.0f));
+		_launchRotation = Quaternion.Euler(new Vector3(0.0f, direction, 0.0f));
 	}
 	
 	void SetNextLaunch() {

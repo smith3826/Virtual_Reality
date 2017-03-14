@@ -1,14 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/HeadLookWalk.cs">
     <Files>
-      <File FileName="Assets/Scripts/NinjaStarLauncher.cs" Line="40" Column="6" />
-      <File FileName="Assets/HeadLookWalk.cs" Line="28" Column="1" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="32" Column="3" />
+      <File FileName="Assets/HeadLookWalk.cs" Line="29" Column="44" />
+      <File FileName="Assets/Standard Assets/CrossPlatformInput/Scripts/ButtonHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets/GoogleVR/Scripts/GvrViewer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NinjaStarLauncher.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/EnemyMover.cs" Line="1" Column="1" />
-      <File FileName="Assets/GestureWalk.cs" Line="12" Column="54" />
-      <File FileName="Assets/HeadGesture.cs" Line="36" Column="5" />
-      <File FileName="Assets/GoogleVR/Scripts/GvrViewer.cs" Line="74" Column="38" />
+      <File FileName="Assets/GestureWalk.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NinjaStarController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Credits.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
