@@ -12,12 +12,15 @@ public class NinjaStarLauncher : MonoBehaviour {
 	private GameController _gameController;
 	private Vector3 _shooterOffset;
 
+    private magneticClick magnetClick = new magneticClick();
+
 	public float velocity = 0.7f;
 	//public bool isWalking = false;
 	//private CharacterController controller;
 
 	void Start () {
-	//	ninja = GetComponent<GameObject> ();
+        //	ninja = GetComponent<GameObject> ();
+        magnetClick.init();
 		_gameController = this.GetComponent<GameController>();
 		_shooterOffset = new Vector3(0.0f, 0.0f, 1.0f);
 
@@ -28,11 +31,12 @@ public class NinjaStarLauncher : MonoBehaviour {
 		//1 
 	//	controller.SimpleMove(Camera.main.transform.forward * velocity);
 		Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
-		if (GvrViewer.Instance.VRModeEnabled && GvrViewer.Instance.Triggered && !_gameController.isGameOver) {  
+        magnetClick.magUpdate(Input.acceleration, Input.compass.rawVector);
+		if (GvrViewer.Instance.VRModeEnabled && (GvrViewer.Instance.Triggered || magnetClick.clicked()) && !_gameController.isGameOver) {  
 			GameObject vrLauncher = GvrViewer.Instance.GetComponentInChildren<GvrHead>().gameObject;
 			// 2
 			LaunchNinjaStarFrom(cam.gameObject, _vrShooterOffset);
-		} else if (!GvrViewer.Instance.VRModeEnabled && Input.GetButtonDown("Fire1") && 
+		} else if (!GvrViewer.Instance.VRModeEnabled && (Input.GetButtonDown("Fire1") || magnetClick.clicked()) && 
 			!_gameController.isGameOver) {
 			// This is the same code as before
 			Vector3 mouseLoc = Input.mousePosition;
