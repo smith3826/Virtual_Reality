@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float direction;
 	
 	private float _nextLaunchTime;
-	private float _ySpawn = 0.4f;
+	private float _ySpawn = 0.6f;
 	private GameController _gameController;
 	private Quaternion _launchRotation;
 

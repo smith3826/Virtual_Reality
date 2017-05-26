@@ -15,24 +15,27 @@ public class HeadLookWalk : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-			//controller.SimpleMove(Camera.main.transform.forward * velocity);
-		Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
+		GameController _gameController = this.GetComponent<GameController> ();
+//		if (_gameController.isGameOver != null && _gameController.isGameOver) {
+//			return;
+//		}
+
+		Camera cam = GameObject.FindWithTag ("Main.Camera").GetComponent<Camera> ();
 		Vector3 moveDirection = cam.transform.forward;
 		moveDirection *= velocity * Time.deltaTime;
 		moveDirection.y = 0.0f;
-		Debug.Log (moveDirection);
 		cam.transform.position += moveDirection;
-		//controller.Move(moveDirection);
 
-		GameObject Button = GameObject.Find("Button");
-		if (GameObject.Find ("Button") != null) {
-			Vector3 pos = Button.transform.forward;
-			pos *= velocity * Time.deltaTime;
-			pos.y = 0.0f;
-			Button.transform.position = pos;
-			Debug.Log ("foundButton");
-			Debug.Log (pos);
+		GameController gameController = FindObjectOfType<GameController> ();
+		if (gameController.VRGameOverCanvas.isActiveAndEnabled) {
+			gameController.VRGameOverCanvas.transform.position = cam.transform.position + cam.transform.forward * 2.0f;
+			gameController.VRGameOverCanvas.transform.rotation = new Quaternion (0.0f, cam.transform.rotation.y, 0.0f, cam.transform.rotation.w);
 		}
+
+		if (gameController.gameOverCanvas.isActiveAndEnabled) {
+			gameController.gameOverCanvas.transform.position = cam.transform.position + cam.transform.forward * 2.0f;
+			gameController.gameOverCanvas.transform.rotation = new Quaternion (0.0f, cam.transform.rotation.y, 0.0f, cam.transform.rotation.w);
+		}
+	
 	}
 }

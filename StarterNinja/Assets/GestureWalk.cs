@@ -9,7 +9,7 @@ public class GestureWalk : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		lookWalk = GetComponent<HeadLookWalk> ();
-		gesture = GameObject.Find ("GameController").GetComponent < HeadGesture> ();
+		gesture = GetComponent<HeadGesture> ();
 	}
 	
 	// Update is called once per frame

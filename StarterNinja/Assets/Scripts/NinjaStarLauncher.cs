@@ -33,11 +33,13 @@ public class NinjaStarLauncher : MonoBehaviour {
 		Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
         magnetClick.magUpdate(Input.acceleration, Input.compass.rawVector);
 		if (GvrViewer.Instance.VRModeEnabled && (GvrViewer.Instance.Triggered || magnetClick.clicked()) && !_gameController.isGameOver) {  
+			Debug.LogError ("if");
 			GameObject vrLauncher = GvrViewer.Instance.GetComponentInChildren<GvrHead>().gameObject;
 			// 2
 			LaunchNinjaStarFrom(cam.gameObject, _vrShooterOffset);
 		} else if (!GvrViewer.Instance.VRModeEnabled && (Input.GetButtonDown("Fire1") || magnetClick.clicked()) && 
 			!_gameController.isGameOver) {
+			Debug.LogError ("else");
 			// This is the same code as before
 			Vector3 mouseLoc = Input.mousePosition;
 			Vector3 worldMouseLoc = Camera.main.ScreenToWorldPoint(mouseLoc);
@@ -57,6 +59,7 @@ public class NinjaStarLauncher : MonoBehaviour {
 		Instantiate(ninjaStar, origin.transform.position + transformedOffset, Quaternion.Euler(ninjaStarRotation));
 		
 		// Play a sound effect!
+		//whooshSound.clip = gameObject.GetComponent<AudioSource>();
 		whooshSound.Play();
 		
 	}

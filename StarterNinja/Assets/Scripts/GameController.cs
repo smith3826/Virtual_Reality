@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 	public Canvas VRGameOverCanvas;
 	public Text VRGameOverTxt;
 	public Text VRScoreTxt;
-
+	public int level = 1;
 	private int _currScore;
 	private int _scoreToWin = 20;
 	private bool _didIWin;
@@ -35,9 +35,8 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	public void GotOne() {
 		_currScore++;
-		scoreTxt.text =  "" + _currScore;
-		VRScoreTxt.text = "" + _currScore;
-
+		scoreTxt.text =  "" + _currScore + '/' + _scoreToWin;
+		VRScoreTxt.text = "" + _currScore + '/' + _scoreToWin;
 		if (_currScore >= _scoreToWin) {
 			GameOver(true);
 		}
@@ -50,7 +49,15 @@ public class GameController : MonoBehaviour {
 	public void GameOver(bool didIWin) { 
 		isGameOver = true;
 		_didIWin = didIWin;
-		string finalTxt = (_didIWin) ? "You won!" : "Too bad";
+		string finalTxt = "Level Up!";
+		if (didIWin == true){
+			finalTxt = "Level Up!";
+			level++;
+
+		} else {
+			finalTxt = "You lost level " + level;
+			level = 1;
+		}
 		if (GvrViewer.Instance.VRModeEnabled) {
 			VRGameOverCanvas.enabled = true;
 			VRGameOverTxt.text = finalTxt;

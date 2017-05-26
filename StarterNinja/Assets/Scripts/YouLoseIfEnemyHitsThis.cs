@@ -13,6 +13,12 @@ public class YouLoseIfEnemyHitsThis : MonoBehaviour {
 			EnemyMover badGuy = other.gameObject.GetComponent<EnemyMover>();
 			if (!badGuy.IsDying()) {
 				gameController.GameOver(false);
+
+				Camera cam = GameObject.FindWithTag("Main.Camera").GetComponent<Camera>();
+				Vector3 moveDirection = cam.transform.position;
+				moveDirection.y = 1.13f;
+				moveDirection.x = 0.0f;
+				moveDirection.z = 0.0f;
 			}
 		}
 	}	

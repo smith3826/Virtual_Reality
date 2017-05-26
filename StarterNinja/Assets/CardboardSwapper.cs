@@ -11,9 +11,20 @@ public class CardboardSwapper : MonoBehaviour {
 		foreach (GameObject cardboardThing in cardboardObjects) {
 			cardboardThing.SetActive(goToVR);
 		}
+		/*if (monoObjects.Length != 0) {
+			foreach (GameObject monoThing in monoObjects) {
+				if (monoThing != null) {
+					print (monoThing.ToString ());
+					print (goToVR.ToString ());
+					monoThing.SetActive (!goToVR);
+				}
+			}
+		}*/
+
 		foreach (GameObject monoThing in monoObjects) {
-			monoThing.SetActive(!goToVR);
-		}
+			monoThing.SetActive (!goToVR);
+		} 
+		print (goToVR.ToString ());
 		GvrViewer.Instance.VRModeEnabled = goToVR;
 
 		// Tell the game over screen to redisplay itself if necessary
@@ -21,6 +32,7 @@ public class CardboardSwapper : MonoBehaviour {
 	}
 
 	public void Switch() {
+		Debug.LogError ("a");
 		ActivateVRMode(!GvrViewer.Instance.VRModeEnabled);
 	}
 

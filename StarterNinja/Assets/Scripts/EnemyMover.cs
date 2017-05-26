@@ -14,6 +14,12 @@ public class EnemyMover : MonoBehaviour {
 	// Use this for initialization.
 	void Start () {
 		_state = EnemyState.Normal;
+
+		//increase speed on harder levels
+		GameController gameController = FindObjectOfType<GameController>();
+		speedMin = gameController.level;
+		speedMax = gameController.level + 1;
+
 		float thisSpeed = Random.Range(speedMin, speedMax);
 		if (GvrViewer.Instance.VRModeEnabled) { 
 			thisSpeed *= 0.85f; 
